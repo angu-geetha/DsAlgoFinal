@@ -120,11 +120,7 @@
 </dependency>
 
 
-		<dependency>
-			<groupId>Cucumber1</groupId>
-			<artifactId>Cucumber1</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		
 	
 		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
 <dependency>
