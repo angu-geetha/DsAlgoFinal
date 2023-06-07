@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MultipleSuite">
+<suite-files>
+	<suite-file path="testng_home.xml"></suite-file>
+	<suite-file path="testng_login.xml"></suite-file>
+	<suite-file path="testng_register.xml"></suite-file>
+	<suite-file path="testng_datastructure.xml"></suite-file>
+	<suite-file path="testng_linkedlist.xml"></suite-file>
+    <suite-file path="testng_tree.xml"></suite-file>
+</suite-files>
+</suite>
