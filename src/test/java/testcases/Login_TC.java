@@ -28,11 +28,11 @@ public class Login_TC extends Base {
 
 	@Test
 	public void testCase001() {
-		LoggerLoad.logInfo("Entering Method : TC-001-Verify register Link");
+		LoggerLoad.logInfo("Entering Method : Login_TC.001");
 		loginpage.opensSigninPage().register().verifyRegisterPage();
 		Allure.step("opening register page");
 		Allure.step("verifying register page");
-		LoggerLoad.logInfo("Exiting Method : Register page open");
+		LoggerLoad.logInfo("Exiting Method :Login_TC.001");
 
 	}
 
@@ -41,7 +41,7 @@ public class Login_TC extends Base {
 			throws InterruptedException, IOException {
 		this.testName = "testCase002";
 		this.testDesc = "testCase002";
-		LoggerLoad.logInfo("Entering Method : TC-002-Verify login input ");
+		LoggerLoad.logInfo("Entering Method :Login_TC.002 ");
 		try {
 			loginpage.opensSigninPage()
 					.enterUsername(userName)
@@ -60,13 +60,13 @@ public class Login_TC extends Base {
 		}
 		Allure.step("verifying login page for valid and invalid scenarios");
 		
-		LoggerLoad.logInfo("Exiting Method :  HomePage  open");
+		LoggerLoad.logInfo("Exiting Method :  Login_TC.002");
 		
 	}
 
 	@Test()
 	public void testCase003() {
-		LoggerLoad.logInfo("Entering Method : TC-003-Verify Signout Link");
+		LoggerLoad.logInfo("Entering Method : Login_TC.003");
 		try {
 			loginpage.opensSigninPage()
 					 .enterUsername(Configreader.getProperty("userName"))
@@ -87,7 +87,7 @@ public class Login_TC extends Base {
 			AssertJUnit.assertTrue(true);
 		}
 		Allure.step("verifying signout link");
-		LoggerLoad.logInfo("Exiting Method : HomePage  open");
+		LoggerLoad.logInfo("Exiting Method :Login_TC.003");
 
 	}
 

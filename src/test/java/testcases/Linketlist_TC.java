@@ -39,7 +39,7 @@ public class Linketlist_TC extends Base {
 	
 	@BeforeMethod
 	public void setupData() throws Exception {
-
+		LoggerLoad.logInfo("Entering Before Method Linkedlist_TC ");
 		loginpage= new Loginpage(driver);
 		 try {
 			 linkedlist = loginpage.opensSigninPage()
@@ -48,7 +48,7 @@ public class Linketlist_TC extends Base {
 				         .enterPassword(Configreader.getProperty("passWord"))
 				         .clickLoginButton()
 				         .verifyHomePage()
-				         .clickLinkedListDropDown();
+				         .clickLinkedList();
 				         
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -57,6 +57,7 @@ public class Linketlist_TC extends Base {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
+		 LoggerLoad.logInfo("Exiting Before Method Linkedlist_TC");
 	}
 	
 	
@@ -64,7 +65,7 @@ public class Linketlist_TC extends Base {
 	@Test(dataProvider="fetchData")
 	public void ts001(String testCaseNo, String pythodCode , String message) throws InterruptedException
 	{
-		LoggerLoad.logInfo("Entering Method : open Linkedlistpage" );
+		LoggerLoad.logInfo("Entering Method : Linkedlist_TC.ts001" );
 		
 		linkedlist.verifyLinkedListPage()
 		.clickLink(testCaseNo)
@@ -79,12 +80,12 @@ public class Linketlist_TC extends Base {
 		
 		
 		
-		LoggerLoad.logInfo("Exiting Method : linkedlist page " );
+		LoggerLoad.logInfo("Exiting Method : Linkedlist_TC.ts001 " );
 	}
 	
 	@Test()
-	public void testCase002() {
-		LoggerLoad.logInfo("Entering Method : open Linkedlist page" );
+	public void ts002() {
+		LoggerLoad.logInfo("Entering Method :Linkedlist_TC.ts002" );
 		
 		this.testName = "linkedlistpracticequestionpage";
 		
@@ -94,7 +95,7 @@ public class Linketlist_TC extends Base {
 	
 	    
 	
-		LoggerLoad.logInfo("Exiting Method : Data Structure Introduction page " );
+		LoggerLoad.logInfo("Exiting Method :Linkedlist_TC.ts002 " );
 	}
 
 	

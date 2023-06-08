@@ -34,6 +34,7 @@ public class Datastructure_TC extends Base {
 		
 		@BeforeMethod
 		public void setUpdata() throws  Exception{
+		LoggerLoad.logInfo("Entering Before Method DataStructure_TC ");
 		loginpage = new Loginpage(driver);
 
 		
@@ -43,6 +44,7 @@ public class Datastructure_TC extends Base {
 					.clickLoginButton()
 					.verifyHomePage()
 					.clickDataStucture();
+			LoggerLoad.logInfo("Exiting Before Method DataStructure_TC");
 		}
 		
 
@@ -52,7 +54,7 @@ public class Datastructure_TC extends Base {
 
 	@Test(dataProvider = "fetchData")
 	public void ts001(String testCaseNo, String pythodCode, String message) throws InterruptedException {
-		LoggerLoad.logInfo("Entering Method : open home page");
+		LoggerLoad.logInfo("Entering Method :DataStructure_TC.ts001");
 
 		dspage.verifyDataStructurePage()
 			  .TimeComplexity_link()
@@ -62,8 +64,7 @@ public class Datastructure_TC extends Base {
 			   sendPythonCode(pythodCode)
 			   .Run_button().
 			   verifyresult(message);
-		Allure.step("verifying the runresult and error message for valid and invalid pythoncode");
-		LoggerLoad.logInfo("Exiting Method : Data Structure Introduction page ");
+		LoggerLoad.logInfo("Exiting Method :DataStructure_TC.ts001 ");
 	}
 
 }

@@ -41,7 +41,7 @@ public class Tree_TC extends Base{
 			         .enterPassword(Configreader.getProperty("passWord"))
 			         .clickLoginButton()
 			         .verifyHomePage()
-			         .clickTreepageDropDown();
+			         .clickTreepage();
 			         
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block

@@ -14,6 +14,7 @@ import org.testng.AssertJUnit;
 
 import base.Base;
 import base.Page;
+import io.qameta.allure.Allure;
 import utils.Configreader;
 import utils.LoggerLoad;
 
@@ -41,6 +42,7 @@ public class Loginpage extends Page {
 	public Registerpage register() {
 
 		register.click();
+		Allure.step("Clicked register  link");
 
 		return new Registerpage(driver);
 	}
@@ -51,6 +53,7 @@ public class Loginpage extends Page {
 			userName.sendKeys(uname);
 		} catch (Exception e) {
 		}
+		Allure.step("entered username");
 		return this;
 	}
 
@@ -59,6 +62,7 @@ public class Loginpage extends Page {
 			passWord.sendKeys(pwd);
 		} catch (Exception e) {
 		}
+		Allure.step("entered password");
 		return this;
 	}
 
@@ -72,13 +76,13 @@ public class Loginpage extends Page {
 				}
 			}
 		}
-		
+		Allure.step("Clicked login button");
 
 		return new Homepage(driver);
 	}
 
 	public String getErrorElementg() {
-
+		Allure.step("Got errorelement textmessage");
 		return (errorElement).getText();
 
 	}
@@ -87,6 +91,7 @@ public class Loginpage extends Page {
 		String url = driver.getCurrentUrl();
 		LoggerLoad.logDebug("The current URL of the page is " + url);
 		AssertJUnit.assertEquals(Configreader.getProperty("loginpageurl"),url);
+		Allure.step("Verified LoginPage");
 		return this;
 	}
 

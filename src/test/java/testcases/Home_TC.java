@@ -40,13 +40,12 @@ public class Home_TC extends Base {
 
 	@Test()
 	public void testCase001()  {
-		LoggerLoad.logInfo("Entering Method :");
+		LoggerLoad.logInfo("Entering Method : Home_TC.testCase001");
 		// chromedriver.navigate().to(homePageUrl);
 		homepage = startpage.openDsAlgoPage()
 		         .clickGetStarted()
 		         .verifyHomePage();
-		Allure.step("verifying Home page");
-		LoggerLoad.logInfo("Exiting Method : " );
+		LoggerLoad.logInfo("Exiting Method : Home_TC.testCase001" );
 		
 	}	
 	
