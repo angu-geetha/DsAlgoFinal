@@ -185,6 +185,18 @@ public class Homepage extends Page {
 		registerbtn.click();
 		return new Registerpage(driver);
 	}
+	
+	public Queuepage clickQueuepageDropDown() {
+		getstart_queue.click();
+		return new Queuepage(driver);
+		
+		
+	}
+
+	public Stackpage clickStackpageDropDown() {
+		getstart_stack.click();
+		return new Stackpage(driver);
+	}
 
 	public Homepage verifyHomePage() {
 		LoggerLoad.logInfo("Entering Method :verifyHomePage");

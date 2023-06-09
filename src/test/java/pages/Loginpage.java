@@ -39,7 +39,7 @@ public class Loginpage extends Page {
 	@FindBy(xpath = "//a[@href='/logout']")
 	WebElement signout;
 
-	public Registerpage register() {
+	public Registerpage register() throws IOException {
 
 		register.click();
 		Allure.step("Clicked register  link");
@@ -49,10 +49,8 @@ public class Loginpage extends Page {
 
 	public Loginpage enterUsername(String uname) throws IOException {
 
-		try {
-			userName.sendKeys(uname);
-		} catch (Exception e) {
-		}
+		userName.sendKeys(uname);
+
 		Allure.step("entered username");
 		return this;
 	}
@@ -69,7 +67,7 @@ public class Loginpage extends Page {
 	public Homepage clickLoginButton() throws InterruptedException, IOException, Exception {
 
 		login.click();
-		if(driver.getCurrentUrl().equalsIgnoreCase(Configreader.getProperty("loginpageurl"))) {
+		if (driver.getCurrentUrl().equalsIgnoreCase(Configreader.getProperty("loginpageurl"))) {
 			if (errorElement.isDisplayed()) {
 				if (!getErrorElementg().isEmpty()) {
 					throw new Exception(getErrorElementg());
@@ -90,9 +88,20 @@ public class Loginpage extends Page {
 	public Loginpage verifyLoginpage() {
 		String url = driver.getCurrentUrl();
 		LoggerLoad.logDebug("The current URL of the page is " + url);
-		AssertJUnit.assertEquals(Configreader.getProperty("loginpageurl"),url);
+		AssertJUnit.assertEquals(Configreader.getProperty("loginpageurl"), url);
 		Allure.step("Verified LoginPage");
 		return this;
+	}
+	
+	public boolean isLoggedIn() {
+		Allure.step("Is user LoggedIn");
+		boolean isLoggedin;
+		try {
+			isLoggedin=signout.isDisplayed();
+		} catch (Exception e) {
+			isLoggedin = false;
+		}
+		return isLoggedin;
 	}
 
 	public Loginpage opensSigninPage() {
@@ -100,14 +109,11 @@ public class Loginpage extends Page {
 		return this;
 
 	}
-	
-	
+
 	public Homepage login() throws InterruptedException, IOException, Exception {
-		return this.opensSigninPage()
-		    .enterUsername(Configreader.getProperty("userName"))
-		    .enterPassword(Configreader.getProperty("passWord"))
-		    .clickLoginButton();
-		//return new Homepage(driver);
+		return this.opensSigninPage().enterUsername(Configreader.getProperty("userName"))
+				.enterPassword(Configreader.getProperty("passWord")).clickLoginButton();
+		// return new Homepage(driver);
 	}
 
 	/*

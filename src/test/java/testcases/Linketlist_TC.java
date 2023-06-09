@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import base.Base;
 import base.Page;
+import pages.Homepage;
 import pages.Linkedlistpage;
 import pages.Loginpage;
 import pages.Tryeditorpage;
@@ -23,6 +24,7 @@ public class Linketlist_TC extends Base {
 
 	Loginpage loginpage;
 	Linkedlistpage linkedlist;
+	Homepage homepage;
 	
 	
 	@BeforeTest
@@ -41,7 +43,14 @@ public class Linketlist_TC extends Base {
 	public void setupData() throws Exception {
 		LoggerLoad.logInfo("Entering Before Method Linkedlist_TC ");
 		loginpage= new Loginpage(driver);
+		homepage = new  Homepage(driver);
 		 try {
+			 if(loginpage.isLoggedIn()) {
+				 linkedlist =   homepage.openHomePage()
+						                .verifyHomePage()
+						                .clickLinkedList();
+				 
+			 } else {
 			 linkedlist = loginpage.opensSigninPage()
 				         .enterUsername(Configreader.getProperty("userName"))
 				    
@@ -49,6 +58,7 @@ public class Linketlist_TC extends Base {
 				         .clickLoginButton()
 				         .verifyHomePage()
 				         .clickLinkedList();
+			 }
 				         
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

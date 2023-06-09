@@ -18,20 +18,25 @@ public class Login_TC extends Base {
 	@BeforeTest
 	public void setUp() {
 		this.fileName = "Login";
-
+		this.testName  ="login";
+		this.testDescription="login";
 		this.testAuthor = "group4";
 		this.testCategory = "Login";
 
 		loginpage = new Loginpage(driver);
-
+		
 	}
 
 	@Test
 	public void testCase001() {
 		LoggerLoad.logInfo("Entering Method : Login_TC.001");
-		loginpage.opensSigninPage().register().verifyRegisterPage();
-		Allure.step("opening register page");
-		Allure.step("verifying register page");
+		try {
+			loginpage.opensSigninPage().register().verifyRegisterPage();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		LoggerLoad.logInfo("Exiting Method :Login_TC.001");
 
 	}
@@ -58,7 +63,7 @@ public class Login_TC extends Base {
 			// TODO Auto-generated catch block
 			AssertJUnit.assertTrue(true);
 		}
-		Allure.step("verifying login page for valid and invalid scenarios");
+		
 		
 		LoggerLoad.logInfo("Exiting Method :  Login_TC.002");
 		
