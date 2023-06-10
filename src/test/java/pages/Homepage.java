@@ -167,6 +167,12 @@ public class Homepage extends Page {
 		return new Treepage(driver);
 
 	}
+	
+	public Arraypage clickArraypageDropDown() {
+		getstart_array.click();
+		return new Arraypage(driver);
+		
+	}
 
 	public Loginpage signinlink() {
 

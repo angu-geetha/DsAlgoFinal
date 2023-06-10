@@ -21,8 +21,7 @@
 				<version>3.0.0-M6</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>testng2.xml</suiteXmlFile>
-						<suiteXmlFile>testng.xml</suiteXmlFile>
+						<suiteXmlFile>testng_array.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
@@ -118,14 +117,20 @@
     <version>4.13.2</version>
     <scope>test</scope>
 </dependency>
+<dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <optional>true</optional>
+</dependency>
 
-
+<!--
 		<dependency>
 			<groupId>Cucumber1</groupId>
 			<artifactId>Cucumber1</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-	
+-->
 		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
 <dependency>
     <groupId>io.qameta.allure</groupId>
