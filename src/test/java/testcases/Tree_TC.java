@@ -58,7 +58,7 @@ public class Tree_TC extends Base {
 	}
 
 	@Test(dataProvider = "fetchData")
-	public void ts001(String testCaseNo, String pythodCode, String message) throws InterruptedException {
+	public void validateTreePage(String testCaseNo, String pythodCode, String message) throws InterruptedException {
 		LoggerLoad.logInfo("Entering Method : open home page");
 
 		treepage.verifyTreePage().clickLink(testCaseNo).Tryhere_button().verifyTryEditorPage()
@@ -68,7 +68,7 @@ public class Tree_TC extends Base {
 	}
 
 	@Test()
-	public void testCase002() {
+	public void validateTreePagePractileQuestions() {
 		LoggerLoad.logInfo("Entering Method : open home page");
 		this.testName = "treepracticepage";
 		treepage.clickTreeOverviewButton().clickpracticeButton().verifyPracticePage(this.testName);

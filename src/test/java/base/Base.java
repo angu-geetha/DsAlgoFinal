@@ -74,7 +74,7 @@ public class Base {
 
 	}
 
-	public String takeSnapShot(String tescaseName) throws IOException {
+	/*public String takeSnapShot(String tescaseName) throws IOException {
 
 		TakesScreenshot srcShot = (TakesScreenshot) driver;
 		File src = srcShot.getScreenshotAs(OutputType.FILE);
@@ -93,7 +93,7 @@ public class Base {
 		return stackTraceElements[0].getMethodName();
 
 		// return Thread.currentThread().getStackTrace()[1].getMethodName() ;
-	}
+	}*/
 
 	@DataProvider(name = "fetchData")
 	public String[][] fetchData() throws IOException {

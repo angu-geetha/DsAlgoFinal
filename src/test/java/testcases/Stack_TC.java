@@ -60,7 +60,7 @@ public class Stack_TC extends Base {
 	
 }
 	@Test(dataProvider="fetchData")
-	public void test001(String Link, String pythonCode , String message) throws InterruptedException
+	public void validateStackPage(String Link, String pythonCode , String message) throws InterruptedException
 	{
 		LoggerLoad.logInfo("Entering Method : open home page" );
 		

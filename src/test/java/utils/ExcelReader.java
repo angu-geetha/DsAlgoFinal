@@ -45,7 +45,7 @@ public class ExcelReader {
 	public static String[][] readRegisterData(String fileName) throws IOException {
 		FileInputStream file = new FileInputStream(new File("./src/test/resources/excel/dsAlgoInput.xlsx"));
 		XSSFWorkbook workbook = new XSSFWorkbook(file);
-		XSSFSheet sheet = workbook.getSheet(fileName);
+		XSSFSheet sheet = workbook.getSheet(fileName.trim());
 		int rowCount = sheet.getLastRowNum();
 		short colCount = sheet.getRow(0).getLastCellNum();
 		String[][] data=new String[rowCount][colCount];

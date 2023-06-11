@@ -26,14 +26,14 @@ public class TestListener implements ITestListener {
 	ExtentTest test;
 	ExtentReports extent = ExtentManager.createExtentReports();
 	WebDriver driver;
-	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest> ();
+	//ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest> ();
 	
 	
 	 public void onTestStart(ITestResult result) { 
 		 ITestContext context = result.getTestContext();
-		driver = (WebDriver)context.getAttribute("WebDriver");
+		 driver = (WebDriver)context.getAttribute("WebDriver");
 		 test =  extent.createTest(result.getMethod().getMethodName());
-		 extentTest.set(test);
+		// extentTest.set(test);
 	 }
 	 
 	 public void onTestSuccess(ITestResult result) {   
@@ -44,7 +44,8 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
     	System.out.println("***** Error "+result.getName()+" test has failed *****");
-    	extentTest.get().fail(result.getThrowable());
+    	//extentTest.get().fail(result.getThrowable());
+    	test.fail(result.getThrowable());
     	String filePath= null;
 		try {
 			filePath = takeSnapShot(result.getMethod().getMethodName().trim(),getTestClassName(result.getInstanceName()).trim());
@@ -52,7 +53,8 @@ public class TestListener implements ITestListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
+    	//extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
+		test.addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
     	saveScreenshotPNG(driver);
     	
 

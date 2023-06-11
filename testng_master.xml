@@ -10,5 +10,8 @@
     <suite-file path="testng_tree.xml"></suite-file>
     <suite-file path="testng_queue.xml"></suite-file>
     <suite-file path="testng_stack.xml"></suite-file>
+    <suite-file path="testng_array.xml"></suite-file>
+    <suite-file path="testng_array_practice.xml"></suite-file>
+    <suite-file path="testng_graph.xml"></suite-file>
 </suite-files>
 </suite>

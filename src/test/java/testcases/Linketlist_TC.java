@@ -73,7 +73,7 @@ public class Linketlist_TC extends Base {
 	
 
 	@Test(dataProvider="fetchData")
-	public void ts001(String testCaseNo, String pythodCode , String message) throws InterruptedException
+	public void validateLinkedListPageLinks(String testCaseNo, String pythodCode , String message) throws InterruptedException
 	{
 		LoggerLoad.logInfo("Entering Method : Linkedlist_TC.ts001" );
 		
@@ -94,7 +94,7 @@ public class Linketlist_TC extends Base {
 	}
 	
 	@Test()
-	public void ts002() {
+	public void validateLinkedListPage_PracticeQuestionLink() {
 		LoggerLoad.logInfo("Entering Method :Linkedlist_TC.ts002" );
 		
 		this.testName = "linkedlistpracticequestionpage";

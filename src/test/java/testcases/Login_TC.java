@@ -4,10 +4,13 @@ import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.io.IOException;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import base.Base;
 import io.qameta.allure.Allure;
+import pages.Homepage;
 import pages.Loginpage;
+import pages.StartPage;
 import utils.Configreader;
 import utils.LoggerLoad;
 
@@ -22,13 +25,17 @@ public class Login_TC extends Base {
 		this.testDescription="login";
 		this.testAuthor = "group4";
 		this.testCategory = "Login";
-
 		loginpage = new Loginpage(driver);
+		
+		
+	}
+	@BeforeMethod
+	public void setData() {
 		
 	}
 
 	@Test
-	public void testCase001() {
+	public void validateRegisterPage() {
 		LoggerLoad.logInfo("Entering Method : Login_TC.001");
 		try {
 			loginpage.opensSigninPage().register().verifyRegisterPage();
@@ -42,7 +49,7 @@ public class Login_TC extends Base {
 	}
 
 	@Test(dataProvider = "fetchData")
-	public void testCase002(String testcaseNo, String userName, String password, String message)
+	public void validateLoginPage(String testcaseNo, String userName, String password, String message)
 			throws InterruptedException, IOException {
 		this.testName = "testCase002";
 		this.testDesc = "testCase002";
@@ -70,7 +77,7 @@ public class Login_TC extends Base {
 	}
 
 	@Test()
-	public void testCase003() {
+	public void validateLogOut() {
 		LoggerLoad.logInfo("Entering Method : Login_TC.003");
 		try {
 			loginpage.opensSigninPage()

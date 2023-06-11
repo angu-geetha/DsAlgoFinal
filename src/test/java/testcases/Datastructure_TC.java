@@ -30,9 +30,9 @@ public class Datastructure_TC extends Base {
 		this.fileName = "DataStructure";
 		this.testAuthor = "group4";
 		this.testCategory = "Datastructure";
-		}
+	}
 		
-		@BeforeMethod
+	@BeforeMethod
 		public void setUpdata() throws  Exception{
 		LoggerLoad.logInfo("Entering Before Method DataStructure_TC ");
 		loginpage = new Loginpage(driver);
@@ -53,7 +53,7 @@ public class Datastructure_TC extends Base {
 	
 
 	@Test(dataProvider = "fetchData")
-	public void ts001(String testCaseNo, String pythodCode, String message) throws InterruptedException {
+	public void validateDataStructurePage(String testCaseNo, String pythodCode, String message) throws InterruptedException {
 		LoggerLoad.logInfo("Entering Method :DataStructure_TC.ts001");
 
 		dspage.verifyDataStructurePage()

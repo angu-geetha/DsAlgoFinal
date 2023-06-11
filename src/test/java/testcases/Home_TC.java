@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 import org.testng.AssertJUnit;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -29,17 +30,21 @@ public class Home_TC extends Base {
 	
 	
 	@BeforeTest
-	public void setData() {
+	public void setUp() {
 		this.fileName = "Homepage";
-
 		this.testAuthor = "group4";
 		this.testCategory = "Regression";
-		startpage = new StartPage(driver);
+		
+	}
 	
+	@BeforeMethod
+	public void setData() {
+		startpage = new StartPage(driver);
+		homepage = new Homepage(driver);
 	}
 
 	@Test()
-	public void testCase001()  {
+	public void validateGetStartedPage()  {
 		LoggerLoad.logInfo("Entering Method : Home_TC.testCase001");
 		// chromedriver.navigate().to(homePageUrl);
 		homepage = startpage.openDsAlgoPage()
@@ -51,7 +56,7 @@ public class Home_TC extends Base {
 	
 	
 	@Test(dataProvider="fetchDataForMethodName")
-	public void testCase002(String elementName) {
+	public void validateDropdown(String elementName) {
 		LoggerLoad.logInfo("Entering Method : Home_TC.testCase002()");
 		Allure.step("opening home page ");
 		// chromedriver.navigate().to(homePageUrl);
@@ -65,7 +70,7 @@ public class Home_TC extends Base {
 	
 
 	@Test(dataProvider="fetchDataForMethodName")
-	public void testCase003(String elementName) {
+	public void validateLinks(String elementName) {
 		LoggerLoad.logInfo("Entering Method : Home_TC.testCase003()");
 		// chromedriver.navigate().to(homePageUrl)
 		Allure.step("opening home page ");
@@ -80,7 +85,7 @@ public class Home_TC extends Base {
 	
 	   
 		@Test()
-		public void testCase004() {
+		public void validateLoginPage() {
 			LoggerLoad.logInfo("Entering Method : Home_TC.testCase004()");
 			// chromedriver.navigate().to(homePageUrl)
 			Allure.step("opening home page ");
@@ -93,7 +98,7 @@ public class Home_TC extends Base {
 		}
 		
 		@Test()
-		public void testCase005() throws IOException {
+		public void validateRegisterPage() throws IOException {
 			LoggerLoad.logInfo("Entering Method :Home_TC.testCase005()");
 			// chromedriver.navigate().to(homePageUrl);
 			Allure.step("opening home page ");
