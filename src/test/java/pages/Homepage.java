@@ -173,6 +173,12 @@ public class Homepage extends Page {
 		return new Arraypage(driver);
 		
 	}
+	
+	public Graphpage clickGraphpageDropDown() {
+		getstart_graph.click();
+		return new Graphpage(driver);
+		
+	}
 
 	public Loginpage signinlink() {
 
