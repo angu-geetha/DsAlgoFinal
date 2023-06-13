@@ -34,19 +34,19 @@ public class Register_TC extends Base {
 	}
 
 	@Test
-	public void testCase001() {
-		LoggerLoad.logInfo("Entering Method :" + this.getMethodName());
+	public void validateHomePage() {
+		LoggerLoad.logInfo("Entering Method :" );
 		this.testName = "testCase001";
 		this.testDesc = "testCase001";
 		startPage.openDsAlgoPage()
 				 .clickGetStarted();
 			homepage.verifyHomePage();
 			Allure.step("verifying Home page");
-		LoggerLoad.logInfo("Exiting Method : " + this.getMethodName());
+		LoggerLoad.logInfo("Exiting Method : " );
 	}
 
 	@Test(dataProvider = "fetchData")
-	public void testCase002(String testcaseNo, String userName, String password, String confPsswd, String message) {
+	public void validateRegisterPage(String testcaseNo, String userName, String password, String confPsswd, String message) {
 		this.testName = "testCase002";
 		this.testDesc = "testCase002";
 		LoggerLoad.logInfo("Entering Method : testCase002");
@@ -60,7 +60,7 @@ public class Register_TC extends Base {
 				    .validateErrorMessage(testcaseNo, message);
 		Allure.step("verifying with valid and invalid usernames and passwords");
 		Allure.step("verifying error message");
-		LoggerLoad.logInfo("Exiting Method : " + this.getMethodName());
+		LoggerLoad.logInfo("Exiting Method : " );
 	}
 
 }

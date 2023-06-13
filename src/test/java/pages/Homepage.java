@@ -12,6 +12,7 @@ import org.testng.AssertJUnit;
 
 import base.Base;
 import base.Page;
+import io.qameta.allure.Allure;
 import utils.Configreader;
 import utils.LoggerLoad;
 
@@ -119,17 +120,21 @@ public class Homepage extends Page {
 
 	public String Alert_msg() {
 		// TODO Auto-generated method stub
+		Allure.step("Got alert textmessage");
 		return Alert_msg.getText();
+		
 	}
 
 	public Datastructurepage clickDataStucture() {
 		getstart_datastructures.click();
+		Allure.step("Clicked DataStructurepage getstarted button");
 		return new Datastructurepage(driver);
 
 	}
 
-	public Linkedlistpage clickLinkedListDropDown() {
+	public Linkedlistpage clickLinkedList() {
 		getstart_linkedlist.click();
+		Allure.step("Clicked Linkedlist getstarted button");
 		return new Linkedlistpage(driver);
 
 	}
@@ -162,22 +167,46 @@ public class Homepage extends Page {
 		return this;
 	}
 
-	public Treepage clickTreepageDropDown() {
+	public Treepage clickTreepage() {
 		getstart_tree.click();
+		Allure.step("Clicked Treepage getstarted button");
 		return new Treepage(driver);
 
 	}
+	public Arraypage clickArraypageDropDown() {
+		getstart_array.click();
+		return new Arraypage(driver);
+		
+	}
+	
+	public Graphpage clickGraphpageDropDown() {
+		getstart_graph.click();
+		return new Graphpage(driver);
+		
+	}
 
 	public Loginpage signinlink() {
-
+		Allure.step("Clicked Signin link");
 		signin.click();
 		return new Loginpage(driver);
 	}
 
 	public Registerpage clickregisterbtn() {
-
+		Allure.step("Clicked Register link");
 		registerbtn.click();
 		return new Registerpage(driver);
+	}
+	
+	public Queuepage clickQueuepageDropDown() {
+		getstart_queue.click();
+		return new Queuepage(driver);
+		
+		
+	}
+
+	public Stackpage clickStackpageDropDown() {
+		getstart_stack.click();
+		return new Stackpage(driver);
 	}
 
 	public Homepage verifyHomePage() {
@@ -185,6 +214,7 @@ public class Homepage extends Page {
 		String url = driver.getCurrentUrl();
 		LoggerLoad.logDebug("The current URL of the page is " + url);
 		AssertJUnit.assertEquals(Configreader.getProperty("homePageUrl"), url);
+		Allure.step("Verified HomePage");
 		return this;
 	}
 
@@ -199,11 +229,12 @@ public class Homepage extends Page {
 		String alertMessage = Alert_msg.getText();
 		String message = Configreader.getProperty("homepageAlertMessage");
 		AssertJUnit.assertTrue(message.contains(alertMessage));
-
+		Allure.step("Verified Errormesage");
 	}
 
 	public Homepage logout() {
 		signout.click();
+		Allure.step("Clicked logout link");
 		return this;
 	}
 }

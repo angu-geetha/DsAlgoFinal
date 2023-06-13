@@ -8,6 +8,7 @@ import org.testng.AssertJUnit;
 
 import base.Base;
 import base.Page;
+import io.qameta.allure.Allure;
 import utils.Configreader;
 import utils.LoggerLoad;
 
@@ -62,7 +63,7 @@ public class Linkedlistpage extends Page {
 	
 	
 	public Linkedlistpage clickintroductionbtn() {
-
+		Allure.step("Clicked introduction link");
 		(introductionbtn).click();
 		return this;
 
@@ -70,24 +71,24 @@ public class Linkedlistpage extends Page {
 	
 	
 	public void clicktryherebtn() {
-
+		Allure.step("Clicked Tryherebutton");
 		(tryherebtn).click();
 
 	}
 	
 
 	public void inputusername(String name) {
-
+		Allure.step("entered username");
 		(Usernamebtn).sendKeys(name);
 
 	}
 	public void sendpassword(String password) {
-
+		Allure.step("entered password");
 		(Passwotdbtn).sendKeys(password);
 
 	}
 	public void clickLoginButton() {
-
+		Allure.step("Clicked loginbutton");
 		(loginbtn).click();
 
 	}
@@ -97,17 +98,17 @@ public class Linkedlistpage extends Page {
 
 	}
 	public void clickLinkedListButton() {
-
+		Allure.step("Clicked Linkedlistbutton");
 		(linlkedlistbtn).click();
 
 	}
 	public String getresult() {
-
+		Allure.step("Got runresult textmessage");
 		return (runresult).getText();
 
 	}
 	public void sendPythonCode(String code) {
-		
+		Allure.step("entered pythoncode");
 		//(tryhere).clear();
 		//ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=' CodeMirror-line ']"));
 		
@@ -121,7 +122,7 @@ public class Linkedlistpage extends Page {
 		
 	}
 	public void clickRunnbutton() {
-
+		Allure.step("Clicked runbutton");
 		(runbutton).click();
 
 	}
@@ -129,44 +130,47 @@ public class Linkedlistpage extends Page {
 	public String getErrormessage() {
 	String errormsg=driver.switchTo().alert().getText();
 	driver.switchTo().alert().accept();
+	Allure.step("Got error textmessage");
 return errormsg;
 	}
 
 	public Linkedlistpage clickCreatingLinkedListButton() {
 
 		(creatinglinkedlistbutton).click();
+		Allure.step("Clicked Creatinglinkedlist link");
+		
 		return this;
 
 	}
 	
 
 	public Linkedlistpage clickTypesOfLinkedListButton() {
-
+		Allure.step("Clicked TypesOfLinkedList link");
 		(Typesoflinkedlistbutton).click();
 		return this;
 
 	}
 	public Linkedlistpage clickImplementLinkedListButton() {
-
+		Allure.step("Clicked ImplementLinkedList link");
 		(ImplementLinkedListbtn).click();
 		return this;
 
 	}
 	public Linkedlistpage clickTraversalButton() {
-
+		Allure.step("Clicked TraversaL link");
 		(traversalbtn).click();
 		return this;
 
 	}
 	public Linkedlistpage clickInsertionButton() {
-
+		Allure.step("Clicked Insertion link");
 		(insertionbtn).click();
 		return this;
 
 	}
 	
 	public Linkedlistpage clickDeleteButton() {
-
+		Allure.step("Clicked Deletion link");
 		(deletebtn).click();
 		return this;
 
@@ -183,6 +187,7 @@ return errormsg;
 		LoggerLoad.logInfo("Entering Method : IndexPage.clickGetStarted");
 		GetStarted.click();
 		LoggerLoad.logInfo("Exiting Method : IndexPage.clickGetStarted");
+		
 	}
 	
 
@@ -198,6 +203,7 @@ return errormsg;
 		String url = driver.getCurrentUrl();
 		LoggerLoad.logDebug("The current URL of the page is " + url);
 		AssertJUnit.assertEquals(Configreader.getProperty("linkedlistpageurl"),url);
+		Allure.step("Verified LinkedList Page");
 		return this;
 	}
 	
@@ -233,7 +239,7 @@ return errormsg;
 	}
 	
 	public Practicepage clickpracticeButton() {
-
+		Allure.step("clicked practice button");
 		(practicebtn).click();
 		return new Practicepage(driver);
 	}

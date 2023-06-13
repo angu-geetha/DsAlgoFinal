@@ -9,7 +9,7 @@ import io.qameta.allure.Allure;
 import pages.Practicepage;
 import pages.Tryeditorpage;
 
-public class Page {
+public class Page  extends  Base{
 	
 	
 	protected WebDriver driver;

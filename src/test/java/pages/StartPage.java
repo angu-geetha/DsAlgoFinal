@@ -9,6 +9,7 @@ import org.testng.AssertJUnit;
 
 import base.Base;
 import base.Page;
+import io.qameta.allure.Allure;
 import utils.Configreader;
 import utils.LoggerLoad;
 
@@ -32,6 +33,7 @@ public class StartPage extends Page {
 		LoggerLoad.logDebug("The Home page URL is "+ dsalgoPageUrl);
 		driver.get(dsalgoPageUrl);
 		LoggerLoad.logInfo("Exiting Method : openDsAlgoPage");
+		Allure.step("Opened Dsalgo page");
 		return this;
 		
 	}
@@ -39,7 +41,7 @@ public class StartPage extends Page {
 		LoggerLoad.logInfo("Entering Method : clickGetStarted" );
 		GetStarted.click();
 		LoggerLoad.logInfo("Exiting Method : clickGetStarted" );
-		
+		Allure.step("Clicked getstarted button");
 		return new Homepage(driver);
 	}
 	

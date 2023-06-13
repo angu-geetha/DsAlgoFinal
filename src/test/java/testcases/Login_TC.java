@@ -4,10 +4,13 @@ import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.io.IOException;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import base.Base;
 import io.qameta.allure.Allure;
+import pages.Homepage;
 import pages.Loginpage;
+import pages.StartPage;
 import utils.Configreader;
 import utils.LoggerLoad;
 
@@ -18,30 +21,39 @@ public class Login_TC extends Base {
 	@BeforeTest
 	public void setUp() {
 		this.fileName = "Login";
-
+		this.testName  ="login";
+		this.testDescription="login";
 		this.testAuthor = "group4";
 		this.testCategory = "Login";
-
 		loginpage = new Loginpage(driver);
-
+		
+		
+	}
+	@BeforeMethod
+	public void setData() {
+		
 	}
 
 	@Test
-	public void testCase001() {
-		LoggerLoad.logInfo("Entering Method : TC-001-Verify register Link");
-		loginpage.opensSigninPage().register().verifyRegisterPage();
-		Allure.step("opening register page");
-		Allure.step("verifying register page");
-		LoggerLoad.logInfo("Exiting Method : Register page open");
+	public void validateRegisterPage() {
+		LoggerLoad.logInfo("Entering Method : Login_TC.001");
+		try {
+			loginpage.opensSigninPage().register().verifyRegisterPage();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		LoggerLoad.logInfo("Exiting Method :Login_TC.001");
 
 	}
 
 	@Test(dataProvider = "fetchData")
-	public void testCase002(String testcaseNo, String userName, String password, String message)
+	public void validateLoginPage(String testcaseNo, String userName, String password, String message)
 			throws InterruptedException, IOException {
 		this.testName = "testCase002";
 		this.testDesc = "testCase002";
-		LoggerLoad.logInfo("Entering Method : TC-002-Verify login input ");
+		LoggerLoad.logInfo("Entering Method :Login_TC.002 ");
 		try {
 			loginpage.opensSigninPage()
 					.enterUsername(userName)
@@ -58,15 +70,15 @@ public class Login_TC extends Base {
 			// TODO Auto-generated catch block
 			AssertJUnit.assertTrue(true);
 		}
-		Allure.step("verifying login page for valid and invalid scenarios");
 		
-		LoggerLoad.logInfo("Exiting Method :  HomePage  open");
+		
+		LoggerLoad.logInfo("Exiting Method :  Login_TC.002");
 		
 	}
 
 	@Test()
-	public void testCase003() {
-		LoggerLoad.logInfo("Entering Method : TC-003-Verify Signout Link");
+	public void validateLogOut() {
+		LoggerLoad.logInfo("Entering Method : Login_TC.003");
 		try {
 			loginpage.opensSigninPage()
 					 .enterUsername(Configreader.getProperty("userName"))
@@ -87,7 +99,7 @@ public class Login_TC extends Base {
 			AssertJUnit.assertTrue(true);
 		}
 		Allure.step("verifying signout link");
-		LoggerLoad.logInfo("Exiting Method : HomePage  open");
+		LoggerLoad.logInfo("Exiting Method :Login_TC.003");
 
 	}
 
